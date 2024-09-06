@@ -1,6 +1,6 @@
 import os
 import openai
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template, jsonify, send_from_directory
 from PIL import Image
 import numpy as np
 import tensorflow as tf
@@ -54,7 +54,7 @@ def chat():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return send_from_directory('', 'index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
